@@ -6,7 +6,7 @@ namespace FPS
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private float sens = 0.3f;
+        [SerializeField] private float sens = 500f;
         [SerializeField] private float y_minAngle = 0.0f;
         [SerializeField] private float y_maxAngle = 360f;
         [SerializeField] private float x_minAngle = -90f;
@@ -17,8 +17,8 @@ namespace FPS
             float mouseX = Input.GetAxisRaw("Mouse X");
             float mouseY = Input.GetAxisRaw("Mouse Y");
             
-            angleX -= mouseY * sens;
-            angleY += mouseX * sens;
+            angleX -= mouseY * sens * Time.deltaTime;
+            angleY += mouseX * sens * Time.deltaTime;
 
             angleY = Mathf.Repeat(angleY - y_minAngle, y_maxAngle - y_minAngle);
             angleX = Mathf.Clamp(angleX, x_minAngle, x_maxAngle);

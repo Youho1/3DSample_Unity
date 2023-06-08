@@ -9,10 +9,10 @@ namespace TPS1
         [SerializeField] Transform target;
         public float vectorY = 0;
         public float vectorX = 0;
-        private float sens = 5f;
+        private float sens = 500f;
         private float min = 0.0f;
         private float max = 360.0f;
-        private void FixedUpdate()
+        private void Update()
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
@@ -20,8 +20,8 @@ namespace TPS1
             // 右ボタンバージョン
             if (Input.GetMouseButton(1))
             {
-                vectorY -= mouseY * sens;
-                vectorX += mouseX * sens * 1.2f;
+                vectorY -= mouseY * sens * Time.deltaTime;
+                vectorX += mouseX * sens * Time.deltaTime;
 
             }
 

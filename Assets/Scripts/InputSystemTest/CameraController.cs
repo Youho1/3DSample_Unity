@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TPS2
+namespace InputSystemTest
 {
     public class CameraController : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace TPS2
             vectorX += mouseX * sens * Time.deltaTime;
             vectorY = Mathf.Clamp(vectorY, 20.0f, 90.0f);
             vectorX = Mathf.Repeat(vectorX - min, max - min) + min;
-            this.transform.rotation = Quaternion.Euler(vectorY, vectorX, 0.0f);
+            transform.rotation = Quaternion.Euler(vectorY, vectorX, 0.0f);
             this.transform.position = Target.transform.position + new Vector3(0.0f, 1.0f, 0.0f);
         }
     }
