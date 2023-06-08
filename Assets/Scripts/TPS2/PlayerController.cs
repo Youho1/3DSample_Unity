@@ -25,6 +25,7 @@ namespace TPS2
         {
             if (inputValue == Vector2.zero) return;
             Direction = Camera.main.transform.right * inputValue.x + Camera.main.transform.forward * inputValue.y;
+            Direction.Normalize();
             Direction.y = 0;
             var Velocity = Direction * speed * Time.deltaTime;
             _rb.MovePosition(transform.position + Velocity);

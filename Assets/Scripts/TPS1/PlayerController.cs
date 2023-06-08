@@ -20,6 +20,9 @@ namespace TPS1
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
             Move(new Vector2(horizontalInput, verticalInput));
+            var CameraForward = Camera.main.transform.forward;
+            CameraForward.y = 0;
+            transform.LookAt(transform.position + CameraForward);
         }
 
         private void Move(Vector2 inputValue)
@@ -38,9 +41,6 @@ namespace TPS1
             }
 
             _rb.MovePosition(transform.position + Velocity);
-            var CameraForward = Camera.main.transform.forward;
-            CameraForward.y = 0;
-            transform.LookAt(transform.position + CameraForward);
         }
     }
 
