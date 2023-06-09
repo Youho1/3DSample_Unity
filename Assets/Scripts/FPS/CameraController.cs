@@ -20,7 +20,7 @@ namespace FPS
             angleX -= mouseY * sens * Time.deltaTime;
             angleY += mouseX * sens * Time.deltaTime;
 
-            angleY = Mathf.Repeat(angleY - y_minAngle, y_maxAngle - y_minAngle);
+            angleY = Mathf.Repeat(angleY, y_maxAngle - y_minAngle);
             angleX = Mathf.Clamp(angleX, x_minAngle, x_maxAngle);
             this.transform.rotation = Quaternion.Euler(angleX, angleY, 0.0f);
         }

@@ -28,22 +28,23 @@ namespace TPS1
             // 矢印バージョン
             if (Input.GetKey(KeyCode.Z))
             {
-                vectorX -= 1 * sens;
+                vectorX -= 0.5f * sens * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.C))
             {
-                vectorX += 1 * sens;
+                vectorX += 0.5f * sens * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.H))
             {
-                vectorY -= 1 * sens;
+                vectorY -= 0.5f * sens * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.Y))
             {
-                vectorY += 1 * sens;
+                vectorY += 0.5f * sens * Time.deltaTime;
             }
+
             vectorY = Mathf.Clamp(vectorY, 20.0f, 90.0f);
-            vectorX = Mathf.Repeat(vectorX - min, max - min) + min;
+            vectorX = Mathf.Repeat(vectorX, max - min) + min;
             this.transform.rotation = Quaternion.Euler(vectorY, vectorX, 0.0f);
         }
     }

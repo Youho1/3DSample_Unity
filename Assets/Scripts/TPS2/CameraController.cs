@@ -19,7 +19,7 @@ namespace TPS2
             vectorY -= mouseY * sens * Time.deltaTime;
             vectorX += mouseX * sens * Time.deltaTime;
             vectorY = Mathf.Clamp(vectorY, 20.0f, 90.0f);
-            vectorX = Mathf.Repeat(vectorX - min, max - min) + min;
+            vectorX = Mathf.Repeat(vectorX, max - min) + min;
             this.transform.rotation = Quaternion.Euler(vectorY, vectorX, 0.0f);
             this.transform.position = Target.transform.position + new Vector3(0.0f, 1.0f, 0.0f);
         }
